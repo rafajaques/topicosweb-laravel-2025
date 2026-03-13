@@ -8,3 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+
+Route::post('/login', [LoginController::class, 'autenticar'])->name('login');
+
+Route::get('/bemvindo', [LoginController::class, 'bemvindo'])->name('bemvindo');
