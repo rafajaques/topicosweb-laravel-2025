@@ -4,5 +4,20 @@
     <a href="{{ route('cartas.inserir') }}">➕ Adicionar Carta</a>
 </div>
 <div>
-    Aqui fica a lista de cartas
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+        </tr>
+
+        @foreach ($cartas as $carta)
+        <tr>
+            <td>{{ $carta['id'] }}</td>
+            <td>{{ $carta['nome'] }}</td>
+            <td><img src="{{ asset('storage/energias/'.$carta['tipo'].'.png') }}" width="22"></td>
+        </tr>
+        @endforeach
+    </table>
+    
 </div>
