@@ -18,6 +18,13 @@ class CartasController extends Controller
     public function inserir(Request $request) {
         if ($request->isMethod('POST')) {
             $dados = $request->only('nome', 'tipo');
+            
+            $foto = $request->file('foto')->store('cartas', 'public');
+            
+            if ($foto) {
+                $dados['foto'] = $foto;
+            }
+            
             Carta::create($dados);
 
             return redirect()->route('cartas.index');

@@ -1,6 +1,6 @@
 <h1>Cartas</h1>
 
-<form action="{{ route('cartas.gravar') }}" method="post">
+<form action="{{ route('cartas.gravar') }}" method="post" enctype="multipart/form-data">
     @csrf
     <input type="text" name="nome" placeholder="Nome">
     <br>
