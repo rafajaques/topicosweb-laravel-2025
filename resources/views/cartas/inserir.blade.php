@@ -9,6 +9,8 @@
         <option value="elétrico">Elétrico</option>
     </select>
     <br>
+    <input type="text" name="numero" placeholder="Número">
+    <br>
     <input type="file" name="foto">
     <br>
     <input type="submit" value="Gravar">

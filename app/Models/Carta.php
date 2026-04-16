@@ -10,5 +10,6 @@ class Carta extends Model
         'nome',
         'tipo',
         'foto',
+        'numero',
     ];
 }

@@ -17,7 +17,7 @@ class CartasController extends Controller
 
     public function inserir(Request $request) {
         if ($request->isMethod('POST')) {
-            $dados = $request->only('nome', 'tipo');
+            $dados = $request->only('nome', 'tipo', 'numero');
             
             $foto = $request->file('foto')->store('cartas', 'public');
             
