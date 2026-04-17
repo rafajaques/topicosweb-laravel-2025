@@ -24,4 +24,12 @@ Route::prefix('/cartas')->group(function() {
     
     Route::post('/inserir', [CartasController::class, 'inserir'])->name('cartas.gravar');
 
+    Route::get('/editar/{carta}', [CartasController::class, 'editar'])->name('cartas.editar');
+
+    Route::put('/editar/{carta}', [CartasController::class, 'editar'])->name('cartas.atualizar');
+
+    Route::get('/excluir/{carta}', [CartasController::class, 'excluir'])->name('cartas.excluir');
+
+    Route::delete('/excluir/{carta}', [CartasController::class, 'excluir'])->name('cartas.deletar');
+
 });

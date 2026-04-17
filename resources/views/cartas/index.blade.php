@@ -11,6 +11,8 @@
             <th>Número</th>
             <th>Tipo</th>
             <th>Foto</th>
+            <th>Editar</th>
+            <th>Excluir</th>
         </tr>
 
         @foreach ($cartas as $carta)
@@ -20,6 +22,12 @@
             <td>{{ $carta['numero'] }}</td>
             <td><img src="{{ asset('storage/energias/'.$carta['tipo'].'.png') }}" width="22"></td>
             <td><img src="{{ asset('storage/'.$carta['foto']) }}" width="40"></td>
+            <td>
+                <a href="{{ route('cartas.editar', $carta['id']) }}">✏️</a>
+            </td>
+            <td>
+                <a href="{{ route('cartas.excluir', $carta['id']) }}">🗑️</a>
+            </td>
         </tr>
         @endforeach
     </table>

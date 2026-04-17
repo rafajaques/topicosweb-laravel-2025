@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CartasController extends Controller
 {
@@ -31,5 +32,25 @@ class CartasController extends Controller
         }
         
         return view('cartas.inserir');
+    }
+
+    public function editar(Request $request, Carta $carta) {
+
+    }
+
+    public function excluir(Request $request, Carta $carta) {
+        // Excluir a carta do banco de dados
+        if ($request->isMethod('DELETE')) {
+            // Excluir a foto da carta, se existir
+            if ($carta->foto) {
+                Storage::disk('public')->delete($carta->foto);
+            }
+            $carta->delete();
+            return redirect()->route('cartas.index');
+        }
+
+        return view('cartas.excluir', [
+            'carta' => $carta,
+        ]);
     }
 }
