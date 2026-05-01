@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiCartasController;
 use App\Http\Controllers\CartasController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,12 @@ Route::prefix('/cartas')->group(function() {
 
     Route::delete('/excluir/{carta}', [CartasController::class, 'excluir'])->name('cartas.deletar');
 
+});
+
+Route::prefix('/api/cartas')->group(function() {
+    Route::get('/', [ApiCartasController::class, 'index']);
+    
+    Route::get('/{carta}', [ApiCartasController::class, 'show']);
+
+    Route::post('/', [ApiCartasController::class, 'store']);
 });
